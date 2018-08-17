@@ -18,7 +18,8 @@ jobs:
           command: npm run build
       - run:
           name: Deploy
-          command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
+          command: git commit --allow-empty -m "Trigger Heroku deploy after enabling collectstatic"
+          command: git push git@github.com:dougogisi/starter-gatsby-blog.git
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
